@@ -9,6 +9,7 @@
     <meta name="author" content="Marand">
 
     <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
     <script src="angular-resource/angular-resource.js"></script>
     <script src="app/app.js"></script>
 </head>
@@ -17,9 +18,11 @@
 
 <ehr-form>
     <form>
-        <div>Welcome to ThinkEhr Stub App - Intellij Version</div>
+        <h1>Welcome to ThinkEhr Stub App - Intellij Version</h1>
         <div ng-app="ThinkEhrApp" ng-controller="AppCtrl">
+            <div ng-view=""></div>
         </div>
+
     </form>
 </ehr-form>
 
