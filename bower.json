@@ -1,0 +1,34 @@
+{
+  "name": "thinkehr-app-intellij",
+  "authors": [
+    "Matija Kejzar <matija.kejzar@marand.si>"
+  ],
+  "description": "Stub for a HTML5 app (IntelliJ)",
+  "main": "src/app/app.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "thinkehr",
+    "form",
+    "presentation",
+    "rendering",
+    "stub",
+    "app"
+  ],
+  "license": "Apache License, Version 2.0",
+  "homepage": "http://www.ehrscape.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "vendor"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "angular-resource": "~1.4.9"
+  }
+}
