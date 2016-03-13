@@ -15,10 +15,16 @@
     "app",
     "stub"
   ],
-  "author": "Matija Kejžar <matija.kejzar@marand.si>",
+  "author": "Marand",
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/ThinkEhrDev/thinkehr-app-intellij/issues"
   },
-  "homepage": "https://github.com/ThinkEhrDev/thinkehr-app-intellij"
+  "homepage": "https://github.com/ThinkEhrDev/thinkehr-app-intellij",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-install": "^0.6.0"
+  }
 }
