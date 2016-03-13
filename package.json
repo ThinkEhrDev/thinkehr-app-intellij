@@ -1,0 +1,24 @@
+{
+  "name": "thinkehr-app-intellij",
+  "version": "1.0.0",
+  "description": "ThinkEhr App Stub",
+  "main": "src/app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThinkEhrDev/thinkehr-app-intellij.git"
+  },
+  "keywords": [
+    "thinkehr",
+    "app",
+    "stub"
+  ],
+  "author": "Matija Kejžar <matija.kejzar@marand.si>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/ThinkEhrDev/thinkehr-app-intellij/issues"
+  },
+  "homepage": "https://github.com/ThinkEhrDev/thinkehr-app-intellij"
+}
