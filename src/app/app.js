@@ -41,7 +41,7 @@
                 restUrl: 'https://rest.ehrscape.com/rest/v1',
                 form: {
                     name: 'VitalSignsPS',
-                    version: '1.0.0',
+                    version: '1.0.1',
                     compositionUid: 'f07f5924-9dfb-4ba1-88af-b7d9aa7b8754::matijak.ehrscape.com::1',
                     aql: "select c from Composition c where c/uid/value = 'f07f5924-9dfb-4ba1-88af-b7d9aa7b8754::matijak.ehrscape.com::1'"
                 }
