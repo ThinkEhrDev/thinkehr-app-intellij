@@ -1,6 +1,6 @@
 (function (angular) {
 
-    var app = angular.module('ThinkEhrApp', ['ngRoute'])
+    var app = angular.module('ThinkEhrApp', ['ngRoute', 'ngMessages'])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
                 .when("/", {
