@@ -19,16 +19,16 @@
                 templateUrl: 'app/views/tfpContainer.html',
                 restrict: 'E',
                 scope: {
-                    ehrContainer: '='
+                    ehrCont: '='
                 },
                 link: function (scope, element, attrs) {
 
-                    angular.forEach(scope.ehrContainer.children, function (child) {
+                    angular.forEach(scope.ehrCont.children, function (child) {
                         var childScope = $rootScope.$new(false, scope);
                         childScope.tfpElement = child;
 
                         if (isContainer(child)) {
-                            var html = '<tfp-container ehr-container="tfpElement" data-rm-type="{{ehrContainer.rmType}}"></tfp-container>'
+                            var html = '<tfp-container ehr-cont="tfpElement" data-rm-type="{{tfpElement.rmType}}"></tfp-container>'
                         } else {
                             html = '<tfp-value ehr-value="tfpElement" data-rm-type="{{ehrValue.rmType}}"></tfp-value>'
                         }
