@@ -46,8 +46,8 @@
                 form: {
                     name: 'VitalSignsPsDemo',
                     version: '1.0.11',
-                    compositionUid: '06810633-5ce9-423f-906c-2c5bbd656c29::matijak.ehrscape.com::1',
-                    aql: "select c from Composition c where c/uid/value = '06810633-5ce9-423f-906c-2c5bbd656c29::matijak.ehrscape.com::1'",
+                    compositionUid: '06810633-5ce9-423f-906c-2c5bbd656c29::matijak.ehrscape.com::2',
+                    aql: "select c from Composition c where c/uid/value = '06810633-5ce9-423f-906c-2c5bbd656c29::matijak.ehrscape.com::2'",
                     ehrUid: '9cfc25f3-e8a8-4e6b-8414-823517294f5d',
                     templateId: 'Vital Signs'
                 }
@@ -92,8 +92,9 @@
         }])
         .controller('ViewController', ['$scope', 'AppSettings', 'PresentationResource', 'presentation', function($scope, AppSettings, PresentationResource, presentation) {
 
-            $scope.presentation = presentation[0]['composition'];
             console.log('ViewController', presentation);
+            $scope.presentation = presentation[0]['composition'];
+
             }])
         .controller('FormController', ['$scope', 'AppSettings', 'FormResource', 'CompositionResource', '$routeParams',
             function($scope, AppSettings, FormResource, CompositionResource, $routeParams) {
