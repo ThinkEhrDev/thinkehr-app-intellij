@@ -1,6 +1,6 @@
 (function (angular) {
 
-    var app = angular.module('ThinkEhrApp', ['ngRoute', 'ngResource', 'ThinkEhrFormPresent'])
+    var app = angular.module('ThinkEhrApp', ['ngRoute', 'ngMessages', 'ngResource', 'ThinkEhrFormPresent', 'thinkehrForms4'])
         .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
             $routeProvider
                 .when("/",
@@ -27,15 +27,15 @@
                         }
                     }
                 )
-                .when('/form/:compositionUid', {
+                .when('/form/:compositionUid?', {
                     templateUrl: 'app/views/formView.html',
                     controller: 'FormController'
                 })
                 .otherwise(
-                {
-                    redirectTo: '/'
-                }
-            );
+                    {
+                        redirectTo: '/'
+                    }
+                );
 
             $httpProvider.defaults.headers.common['Authorization'] = "Basic bWF0aWphazptYXBha28yNw==";
 
@@ -61,15 +61,14 @@
                 }
             )
         }])
-        .factory('PresentationResource', ['$resource', 'AppSettings', function ($resource, AppSettings) {
-                return $resource(
-                    AppSettings.restUrl + "/presentation",
-                    {},
-                    {
-                        post: {method: 'POST', isArray: true}
-                    }
-                )
-            }])
+        .factory('FormResource', ['$resource', 'AppSettings', function ($resource, AppSettings) {
+            return $resource(
+                AppSettings.restUrl + "/form/:name/:version",
+                {
+                    resources: 'form-description,form-dependencies'
+                }
+            )
+        }])
         .controller('AppCtrl', ['$scope', 'AppSettings', function ($scope, AppSettings) {
             $scope.compositionUid = AppSettings.form.compositionUid;
         }])
@@ -77,8 +76,33 @@
             $scope.presentation = presentation[0]['composition'];
             console.log("scope.present", $scope.presentation, $route.current);
         }])
-        .controller('FormController', [function() {
+        .controller('FormController', ['$scope', 'AppSettings', 'FormResource', function ($scope, AppSettings, FormResource) {
 
+            FormResource.get({
+                name: AppSettings.form.name,
+                version: AppSettings.form.version
+            }).$promise.then(function(form) {
+
+                var formDescription = null;
+                var formDependencies = null;
+                angular.forEach(form.form.resources, function (resource) {
+                    if (resource.name === 'form-description') {
+                        formDescription = resource;
+                    }
+                    else if (resource.name === 'form-dependencies') {
+                        formDependencies = resource;
+                    }
+                });
+
+                console.log('Form', formDescription, formDependencies);
+                $scope.context = {
+                    language: 'en',
+                    territory: 'SI'
+                };
+                var values = {};
+                $scope.model = thinkehr.f4.parseFormDescription($scope.context, formDescription.content, values, {});
+                console.log('model', $scope.model);
+            })
         }])
         ;
 
