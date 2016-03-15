@@ -27,7 +27,7 @@
                         }
                     }
                 )
-                .when('/form', {
+                .when('/form/:compositionUid', {
                     templateUrl: 'app/views/formView.html',
                     controller: 'FormController'
                 })
@@ -70,8 +70,8 @@
                     }
                 )
             }])
-        .controller('AppCtrl', ['$scope', function ($scope) {
-
+        .controller('AppCtrl', ['$scope', 'AppSettings', function ($scope, AppSettings) {
+            $scope.compositionUid = AppSettings.form.compositionUid;
         }])
         .controller('ViewController', ['$scope', "$route", "presentation", function ($scope, $route, presentation) {
             $scope.presentation = presentation[0]['composition'];
