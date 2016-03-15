@@ -26,7 +26,12 @@
                             }]
                         }
                     }
-                ).otherwise(
+                )
+                .when('/form', {
+                    templateUrl: 'app/views/formView.html',
+                    controller: 'FormController'
+                })
+                .otherwise(
                 {
                     redirectTo: '/'
                 }
@@ -56,12 +61,24 @@
                 }
             )
         }])
+        .factory('PresentationResource', ['$resource', 'AppSettings', function ($resource, AppSettings) {
+                return $resource(
+                    AppSettings.restUrl + "/presentation",
+                    {},
+                    {
+                        post: {method: 'POST', isArray: true}
+                    }
+                )
+            }])
         .controller('AppCtrl', ['$scope', function ($scope) {
 
         }])
         .controller('ViewController', ['$scope', "$route", "presentation", function ($scope, $route, presentation) {
             $scope.presentation = presentation[0]['composition'];
             console.log("scope.present", $scope.presentation, $route.current);
+        }])
+        .controller('FormController', [function() {
+
         }])
         ;
 

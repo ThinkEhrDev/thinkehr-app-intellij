@@ -11,18 +11,50 @@
     <link rel="stylesheet" href="app/style/parent-theme-0.93.21/ehrform-base.css">
     <link rel="stylesheet" href="app/style/parent-theme-0.93.21/kendo-common.min.css">
     <link rel="stylesheet" href="app/style/parent-theme-0.93.21/ehrform-kendo-parent-theme.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-resource/angular-resource.js"></script>
     <script src="app/form-present.js"></script>
     <script src="app/app.js"></script>
+
+    <style>
+        .nav-bar {
+            margin-bottom: 5px;
+            display: flex;
+            font-family: Arial,sans-serif ;
+            font-size: 12px;
+        }
+
+        .nav-item {
+            flex-grow: 1;
+            text-align: center;
+            margin: 5px;
+            background-color: #f4f4f4;
+            height: 40px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .nav-item:hover {
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Welcome to ThinkEhr Stub App - Intellij Version</h1>
 <div ng-app="ThinkEhrApp" ng-controller="AppCtrl">
+    <div class="nav-bar">
+        <a class="nav-item" href="#/"><i class="fa fa-file-text fa-2x" title="View"></i></a>
+        <a class="nav-item" href="#form"><i class="fa fa-plus-circle fa-2x" title="Add"></i></a>
+        <a class="nav-item" href="#form/{{compositionUid}}"><i class="fa fa-pencil fa-2x" title="Edit"></i></a>
+    </div>
+
     <div ng-view=""></div>
 </div>
 
