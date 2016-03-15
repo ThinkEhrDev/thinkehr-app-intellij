@@ -30,6 +30,7 @@
   "dependencies": {
     "angular": "~1.4.9",
     "angular-resource": "~1.4.9",
-    "angular-route": "1.4.9"
+    "angular-route": "1.4.9",
+    "jquery": "^2.2.1"
   }
 }
